@@ -6,9 +6,9 @@ public class Wall {
     private double height;
     private double width;
 
-    public Wall(double height, double width) {
-        this.height = height;
-        this.width = width;
+    public Wall(double width, double height) {
+        this.height = height < 0? 0: height;
+        this.width = width < 0 ? 0: width;
     }
 
     public Wall() {
@@ -38,11 +38,24 @@ public class Wall {
     }
 
     public void setWidth(double width) {
-        if(this.width < 0){
+        if(width < 0){
             this.width = 0;
         } else {
             this.width = width;
         }
     }
+    
+    
+    public static void main(String[] args){
+    
+    Wall wall = new Wall(1.25, 21.25);
+    System.out.println("area= " + wall.getArea());
+    System.out.println();
+    System.out.println("width= " + wall.getWidth());
+    wall.setHeight(1.4);
+    System.out.println("height= " + wall.getHeight());
+    System.out.println("Area= " + wall.getArea());
+    }
 }
+
 
